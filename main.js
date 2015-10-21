@@ -22,8 +22,6 @@ var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chlo
 // TODO: update the object data here with the new entries!
 
 
-
-
 // PART II
 // MUST DO PART I before starting PART II
 var newAgeField;
@@ -45,7 +43,6 @@ var startPartTwo = function() {
     newStateField[1023] = "PO";
     newStateField[2000] = falsy_var;
     newStateField[9999] = "IN";
-    newStateField.length = 1;
 }
 
 // uncomment the code below to start part 2
