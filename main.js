@@ -21,6 +21,26 @@ newLastnameEntry.lol = "you shouldn't be printing this";
 var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chloe@test.com", "robert@test.com"];
 newEmailEntry.lol = "you shouldn't be printing this";
 
+for (var i = newFirstnameEntry.length - 1; i >= 0; i--) {
+	var current=data.users.length
+	data.users[current]={};
+	var a=data.users[current];
+	a.username=newUsernameEntry[i];
+	a.firstName=newFirstnameEntry[i];
+	a.lastName=newLastnameEntry[i];
+	a.email=newEmailEntry[i];
+
+	// data.users.push({username:newUsernameEntry[i],
+	// 				firstName:newFirstnameEntry[i],
+	// 				lastName:newLastnameEntry[i],
+	// 				email:newEmailEntry[i]
+	// });
+	
+
+	// var temp=data.user[current];
+
+};
+
 // TODO: update the object data here with the new entries!
 
 $("#content-placeholder").html(template(data));
