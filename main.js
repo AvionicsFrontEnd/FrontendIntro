@@ -7,6 +7,7 @@ var data = {users: [
   {username: "alan", firstName: "Alan", lastName: "Johnson", email: "alan@test.com" },
   {username: "allison", firstName: "Allison", lastName: "House", email: "allison@test.com" },
   {username: "ryan", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" }
+  {newUsernameEntry, newFirstnameEntry, newLastnameEntry, newEmailEntry}
 ]};
 
 var newUsernameEntry = ["john", "erica", "xavier", "chloe", "robert"];
@@ -20,6 +21,17 @@ newLastnameEntry.lol = "you shouldn't be printing this";
 
 var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chloe@test.com", "robert@test.com"];
 newEmailEntry.lol = "you shouldn't be printing this";
+
+
+
+for( var i= 0; i<5 i++)
+	var myArray = new Array();
+	myArray[i] = newUsernameEntry;
+	myArray[i] = newFirstnameEntry;
+	myArray[i] = newLastnameEntry;
+	myArray[i] = newEmailEntry;
+
+
 
 // TODO: update the object data here with the new entries!
 
