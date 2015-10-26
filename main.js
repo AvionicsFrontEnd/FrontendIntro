@@ -1,6 +1,6 @@
 'use strict'
 
-alert("hey");
+alert("Hello");
 
 $("#firstdiv").on( "click",function(){
     alert("yoo");
