@@ -22,6 +22,14 @@ var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chlo
 newEmailEntry.lol = "you shouldn't be printing this";
 
 // TODO: update the object data here with the new entries!
+for (var i=0 ; i < 5; i++){
+	var newEntry = {username: newUsernameEntry[i], firstName: newFirstnameEntry[i], lastName
+		: newLastnameEntry[i], email:newEmailEntry[i]};
+data.users.push(newEntry);
+}
 
 $("#content-placeholder").html(template(data));
+
+
+
 
