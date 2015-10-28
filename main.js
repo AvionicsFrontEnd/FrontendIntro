@@ -20,7 +20,23 @@ var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chlo
 
 // PART I
 // TODO: update the object data here with the new entries!
+for (var i = 0; i < newUsernameEntry.length; i++) {
+    data.users.push({
+        username: newUsernameEntry[i],
+        firstName: newFirstnameEntry[i],
+        lastName: newLastnameEntry[i],
+        email: newEmailEntry[i]
+    })
+}
 
+var newObj = {};
+
+var newArr = [];
+
+
+data.users[0].forEach(function(alan) {
+    console.log(alan);
+});
 
 // PART II
 // MUST DO PART I before starting PART II
@@ -43,16 +59,34 @@ var startPartTwo = function() {
     newStateField[1023] = "PO";
     newStateField[2000] = falsy_var;
     newStateField[9999] = "IN";
+    newStateField.lol = "you shouldn't be printing this";
 }
 
+console.log(newAgeField);
 // uncomment the code below to start part 2
-// startPartTwo();
+startPartTwo();
 
 //TODO: write your code for part 2 here, introduce new age and state property in the data.users array
 // must use 2 identical loops only to finish this task
 // check these console logs first before starting
 // console.log(newAgeField);
 // console.log(newStateField);
+var indexAge = 0;
+newAgeField.forEach(function(ageEntry) {
+    console.log(ageEntry);
+    if (ageEntry) {
+        (data.users[indexAge]).age = ageEntry;
+        indexAge++;
+    }
+});
+
+var indexState = 0;
+newStateField.forEach(function(stateEntry) {
+    if (stateEntry) {
+        (data.users[indexState]).state = stateEntry;
+        indexState++;
+    }
+});
 
 
 $("#content-placeholder").html(template(data));
