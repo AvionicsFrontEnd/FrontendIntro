@@ -15,33 +15,17 @@
       <table>
         <thead>
           <th>Username</th>
-          <th>Real Name</th>
+          <th>Full Name</th>
           <th>Email</th>
-          {{#if startPartTwo}}
-          <th>Age</th>
-          <th>State</th>
-          {{/if}}
         </thead>
         <tbody>
-          {{#if startPartTwo}}
             {{#users}}
               <tr>
                 <td>{{username}}</td>
-                <td>{{firstName}} {{lastName}}</td>
-                <td>{{email}}</td>
-                <td>{{age}}</td>
-                <td>{{state}}</td>
-              </tr>
-            {{/users}}
-          {{else}}
-            {{#users}}
-              <tr>
-                <td>{{username}}</td>
-                <td>{{firstName}} {{lastName}}</td>
+                <td>{{fullName}}</td>
                 <td>{{email}}</td>
               </tr>
             {{/users}}
-          {{/if}}
         </tbody>
       </table>
     </script>

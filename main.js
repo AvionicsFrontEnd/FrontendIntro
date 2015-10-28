@@ -3,62 +3,90 @@
 var source   = $("#some-template").html();
 var template = Handlebars.compile(source);
 
-var User = function(usernameInput, firstNameInput, lastNameInput) {
+
+// modify this
+var User = function(usernameInput, emailInput) {
 
     var that = this;
 
     //private
-    var email;
+    var firstName,
+        lastName;
 
     //public
     this.userName = usernameInput;
-    this.firstName = firstNameInput;
-    this.lastName = lastNameInput;
+    this.email = emailInput;
+
 
     // do you think this is a good idea? exposing ssn in the user object?
     this.ssn;
 
 
     // getters and setters method
-    this.setEmail = function(emailInput) {
-        email = emailInput;
+    this.setFirstName = function(firstNameInput) {
+        firstName = firstNameInput;
         return that;
     };
 
-    this.getEmail = function(emailInput) {
-        return email;
+    this.getFirstName = function() {
+        return firstName;
     };
 
-    // make a function here to return the full name! while preserving the method chaining!
+    this.setLastName = function(lastNameInput) {
+        lastName = lastNameInput;
+        return that;
+    };
+
+    this.getLastName = function() {
+        return lastName;
+    };
 
 
+    // complete the function below to return the full name!
+    this.getFullName = function() {
+        return "not implemented yet"
+    }
 
     return this;
 }
 
+// modify this to print age and ssn
 var printUser = function(user) {
     return {
         username: user.userName,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.getEmail()
+        fullName: user.getFullName(),
+        email: user.email
     }
 };
 
-//try console logging user.email, what do you get?
+// input these entries to data.users but with your User constructor now
+// i've given 1 example below for alan
 
+var alan = {username: "alanj", firstName: "Alan", lastName: "Johnson", email: "alan@test.com" };
+var allison = {username: "allisonh", firstName: "Allison", lastName: "House", email: "allison@test.com" };
+var ryan = {username: "ryanc", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" };
+
+var usersArray = [];
 
 // set users using your User constructor!
-var alan = (new User("alan", "Alan", "Johnson"))
-                .setEmail("alan@johnson.com");
-var data = {users: [
-  printUser(alan),
-  {username: "allison", firstName: "Allison", lastName: "House", email: "allison@test.com" },
-  {username: "ryan", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" }
-],
-startPartTwo: false};
+var userAlan = new User(alan.username, alan.email);
+userAlan.setFirstName(alan.firstName).setLastName(alan.lastName); //method chaining!
 
-var newUsernameEntry = ["john", "erica", "xavier", "chloe", "robert"];
+//try console logging userAlan.firstName or alan.lastName, what do you get?
+
+usersArray.push(userAlan);
+
+
+
+
+// do not modify this
+var data = {users:[]};
+usersArray.forEach( function(userObject) {
+    data.users.push(printUser(userObject));
+});
+
+
+var newUsernameEntry = ["johnl", "erical", "xavierw", "chloen", "robertp"];
 
 var newFirstnameEntry = ["John", "Erica", "Xavier", "Chloe", "Robert"];
 
@@ -66,15 +94,17 @@ var newLastnameEntry = ["Lambert", "Lo", "White", "Nguyen", "Peterson"];
 
 var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chloe@test.com", "robert@test.com"];
 
-// input these entries to data.users but with your User constructor now
 
 
 
-// extra: make PROTOTYPAL function to set the age and state of user
+// extra: make PROTOTYPAL function to set and get the age
+// extra: make PROTOTYPAL function to set the ssn
+// extra: make PROTOTYPAL function and get the ssn of a user but mask the first 5 digits to X
 // extra: sort users according to their age
-var newStateEntry = ["CA", "IL", "NY", "MA", "TX", "IL", "PA", "IN"];
-
 var newAgeEntry = [20, 40, 34, 54, 18, 23, 54, 76];
+
+var newSsnEntry = ["130785381", "729624509", "326025055", "145939832", "398807664", "988520235", "184943737", "877475364"];
+
 
 
 
