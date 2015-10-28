@@ -3,8 +3,56 @@
 var source   = $("#some-template").html();
 var template = Handlebars.compile(source);
 
+var User = function(usernameInput, firstNameInput, lastNameInput) {
+
+    var that = this;
+
+    //private
+    var email;
+
+    //public
+    this.userName = usernameInput;
+    this.firstName = firstNameInput;
+    this.lastName = lastNameInput;
+
+    // do you think this is a good idea? exposing ssn in the user object?
+    this.ssn;
+
+
+    // getters and setters method
+    this.setEmail = function(emailInput) {
+        email = emailInput;
+        return that;
+    };
+
+    this.getEmail = function(emailInput) {
+        return email;
+    };
+
+    // make a function here to return the full name! while preserving the method chaining!
+
+
+
+    return this;
+}
+
+var printUser = function(user) {
+    return {
+        username: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.getEmail()
+    }
+};
+
+//try console logging user.email, what do you get?
+
+
+// set users using your User constructor!
+var alan = (new User("alan", "Alan", "Johnson"))
+                .setEmail("alan@johnson.com");
 var data = {users: [
-  {username: "alan", firstName: "Alan", lastName: "Johnson", email: "alan@test.com" },
+  printUser(alan),
   {username: "allison", firstName: "Allison", lastName: "House", email: "allison@test.com" },
   {username: "ryan", firstName: "Ryan", lastName: "Carson", email: "ryan@test.com" }
 ],
@@ -18,41 +66,17 @@ var newLastnameEntry = ["Lambert", "Lo", "White", "Nguyen", "Peterson"];
 
 var newEmailEntry = ["john@test.com", "erica@test.com", "xavier@test.com", "chloe@test.com", "robert@test.com"];
 
-// PART I
-// TODO: update the object data here with the new entries!
+// input these entries to data.users but with your User constructor now
 
 
-// PART II
-// MUST DO PART I before starting PART II
-var newAgeField;
-var newStateField = [];
-var startPartTwo = function() {
-    data.startPartTwo = true;
-    newAgeField = ["13", "17", "20", "18", "23", "40", "31", "34"];
-    var falsy_var;
-    newAgeField.lol = "you shouldn't be printing this";
-    newAgeField[1000] = falsy_var;
-    newStateField[3] = "IL";
-    newStateField[4] = falsy_var;
-    newStateField[12] = "MO";
-    newStateField[20] = falsy_var;
-    newStateField[32] = "NY";
-    newStateField[35] = "CA";
-    newStateField[49] = "CA";
-    newStateField[100] = "TX";
-    newStateField[1023] = "PO";
-    newStateField[2000] = falsy_var;
-    newStateField[9999] = "IN";
-}
 
-// uncomment the code below to start part 2
-// startPartTwo();
+// extra: make PROTOTYPAL function to set the age and state of user
+// extra: sort users according to their age
+var newStateEntry = ["CA", "IL", "NY", "MA", "TX", "IL", "PA", "IN"];
 
-//TODO: write your code for part 2 here, introduce new age and state property in the data.users array
-// must use 2 identical loops only to finish this task
-// check these console logs first before starting
-// console.log(newAgeField);
-// console.log(newStateField);
+var newAgeEntry = [20, 40, 34, 54, 18, 23, 54, 76];
+
+
 
 
 $("#content-placeholder").html(template(data));
